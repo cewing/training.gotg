@@ -14,15 +14,19 @@ Building the Documentation
 This documentation may be built using the tools provided by the python
 docutils_ module. It uses buildout_ to create a virtualenv_, install
 docutils and provide executable scripts to build each of the different 
-target output types.  
+target output types.  In order to build a particular type of documentation 
+you will need to do the following::
 
-Now you have access to the docutils scripts. You can download and build the
-documentation using those tools::
-
-    (docenv)$ git clone git@github.com:cewing/training.gotg.git ./training.gotg
+    $ python bootstrap.py
     ...
-    (docenv)$ cd training.gotg
-    (docenv)$ docenv/bin/rst2html.py source/<filename> build/<filename>
+    $ bin/buildout
+    ...
+    $ bin/build_s5
+
+This will build the training module into an s5 presentation suitable for use
+in a classroom setting.
+
+Valid targets at this time include **s5** and **html**.  
 
 .. _License: http://creativecommons.org/licenses/by-nc-sa/3.0/
 .. _docutils: http://docutils.sourceforge.net/
