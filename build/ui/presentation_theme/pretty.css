@@ -31,7 +31,8 @@ div#header {background: #e3e2cd url(../../img/linked_in_logo.png) 5px 5px no-rep
 /* background: #005 url(bodybg.gif) -16px 0 no-repeat; */
 div#footer {font-size: 0.5em; font-weight: bold; padding: 1em 0;}
 #footer h1 {display: block; padding: 0 1em;}
-#footer h2 {display: block; padding: 0.8em 1em 0;}
+#footer h2 {display: block; padding: 0.8em 1em 0; border: 1px solid red; text-align: right}
+#footer h2 a {}
 
 .slide {font-size: 1.2em;}
 .slide h1 {position: absolute; top: 0.45em; z-index: 1;
@@ -113,6 +114,7 @@ img.incremental {visibility: hidden;}
 /* Docutils-specific overrides */
 
 .slide table.docinfo {margin: 1em 0 0.5em 2em;}
+.slide table.docutils td {padding: 0em 1em;}
 
 pre.literal-block, pre.doctest-block {background-color: white;}
 
