@@ -1,0 +1,14 @@
+body {
+    background-color: white;
+    padding: 1em;
+}
+div.document {
+    border: 1px solid #ccc;
+    padding: 1em;
+}
+div.section {
+    border: 1px solid #ccc;
+    background-color: #efefef;
+    padding: 1em;
+    margin-bottom: 1em;
+}
