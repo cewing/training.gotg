@@ -29,4 +29,6 @@ svn-commit.tmp
 .vim/bundle/command-t/ruby/command-t/mkmf.log
 .installed.cfg
 bin
-build
+lib
+include
+downloads
