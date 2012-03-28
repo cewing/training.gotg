@@ -11,29 +11,10 @@ package under ``docs``
 Building the Documentation
 ==========================
 
-This documentation may be built using the python docutils_ module.  I recommend
-installing docutils in a virtualenv_.  Here are the steps I take to build the
-documentation::
-
-    $ mkdir gotg
-    $ cd gotg
-    $ python easy_install virtualenv
-    $ virtualenv --no-site-packages --distribute ./docenv
-    ...
-    $ source docenv/bin/activate
-    (docenv)$ easy_install docutils
-    (docenv)$ ls docenv/bin
-    ...
-    rst2html.py
-    rst2latex.py
-    rst2man.py
-    rst2odt.py
-    rst2odt_prepstyles.py
-    rst2pseudoxml.py
-    rst2s5.py
-    rst2xetex.py
-    rst2xml.py
-    rstpep2html.py
+This documentation may be built using the tools provided by the python
+docutils_ module. It uses buildout_ to create a virtualenv_, install
+docutils and provide executable scripts to build each of the different 
+target output types.  
 
 Now you have access to the docutils scripts. You can download and build the
 documentation using those tools::
@@ -46,3 +27,4 @@ documentation using those tools::
 .. _License: http://creativecommons.org/licenses/by-nc-sa/3.0/
 .. _docutils: http://docutils.sourceforge.net/
 .. _virtualenv: http://www.virtualenv.org/en/latest/index.html
+.. _buildout: http://www.buildout.org/
