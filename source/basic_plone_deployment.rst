@@ -35,7 +35,7 @@ Version control allows you, as a developer, to track changes to your code over
 time. If you are developing code of any kind, you should be using version
 control.
 
-.. class:: incremental
+.. class:: incremental smaller
 
 * You can see how/where your code has changed
 
@@ -54,7 +54,7 @@ Version Control Options
 Version control comes in many flavors. Way back when I first started working
 as a developer **CVS** was pretty much the only option. Today there are many.
 
-.. class:: incremental
+.. class:: incremental smaller
 
 * Centralized
 
@@ -82,7 +82,7 @@ Installing Git for Windows
 
 A nice, binary installer is available.  Use it
 
-.. class;: todo
+.. class:: todo
 
 * http://git-scm.com/download
 
@@ -109,6 +109,8 @@ Creating a Git Repository
 Windows
 -------
 
+.. class:: todo
+
 * Start up the git application from your taskbar, or the start menu
 
 * Click **Create New Repository**
@@ -124,19 +126,28 @@ to remind yourself what you've done
 All Other Systems
 -----------------
 
-Once you've installed git, you should have the command available in your
-$PATH.
+In your terminal
 
-In your terminal::
+.. class:: note mini
+
+::
 
     $ cd src/my.package
     $ git init
 
-You can add files for staging::
+You can add files for staging
+
+.. class:: note mini
+
+::
 
     $ git add <filename_or_glob>
 
-Then you can commit those changes::
+Then you can commit those changes
+
+.. class:: note mini
+
+::
 
     $ git commit -m "My first commit to my new repository"
 
@@ -216,6 +227,8 @@ Hosting Options
 
 * My personal favorite hosting service is **Web Faction**
 
+  .. class:: smaller
+
   * You can get a small Plone site running for ~$15/month
 
   * There's a nice, 1-click installer that uses the UnifiedInstaller so the
@@ -231,12 +244,16 @@ Other Options
 
 * Virtual Private Server hosting
 
+  .. class:: smaller
+
   * Rackspace, Rimu, Cloudspace
 
   * You'll be responsible for a *lot more* of the administration of these
     types of servers
 
 * Cloud-based hosting
+
+  .. class:: smaller
 
   * Amazon Web Services
 
