@@ -257,6 +257,8 @@ Parts
 
 * Parts represent functional units of configuration
 
+.. class:: incremental
+
 * Parts are designated by square brackets around a name
 
   * All buildouts require at least the [buildout] part
@@ -267,9 +269,14 @@ Parts
 
   * This will be designated on the line immediately after the part name
 
+Parts
+-----
+
 * Parts will have configuration data
 
-* The [buildout] part has a list of the other parts that will be run::
+.. class:: incremental
+
+* The [buildout] part will have a list of the other parts that will be run::
     
     parts = 
        <part_1>
@@ -373,6 +380,8 @@ Running a Buildout
         $ /path/to/python bootstrap.py
         ... (a lot of output will happen here)
         $ bin/buildout
+
+.. class:: incremental
 
 * When it's over, you have a system in place that will be identical to that of
   anyone else who has run the same buildout
