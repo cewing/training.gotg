@@ -4,8 +4,8 @@ Getting Off The Ground With Plone
 .. class:: align-center
 
 | **Cris Ewing**
-| Plone Conference, Nov 1-2, 2011
-| San Francisco, CA, USA
+| Plone Symposium East, May 20-21, 2012
+| State College, PA, USA
 
 
 Course Outline

@@ -16,11 +16,17 @@ Download Plone
 
 * Select an appropriate installer
 
+  .. class:: info
+
   * For Windows, the Windows Installer
 
   * For Unix/Linux, the Unified Installer
 
   * For OS X, the OS X installer or the Unified Installer
+    
+.. class:: incremental note
+
+OS X Lion has a special binary installer.  It is *not* the same as earlier versions
 
 Install Plone
 -------------
@@ -33,19 +39,25 @@ Install Plone
 
 * We will use one of the installers today
 
-* Installer Notes
+Installer Notes
+---------------
+
+.. class:: incremental
+
+* All Installers contain everything you need
 
   .. class:: incremental
 
-  * All Installers contain everything you need
+  * This means once you have the installer, you *can* run it without a network
+    connection
 
-  * The Unified Installer __requires__ that you have a compiler for the
-    '''C''' programming language installed on your machin
+* The Unified Installer **requires** that you have a compiler for the
+  **C** programming language installed on your machine
 
 Binary Installers
 -----------------
 
-.. class:: todo
+.. class:: todo incremental
 
 * Save the installer to your desktop
 
@@ -145,12 +157,12 @@ Windows:
     C:\> cd Plone41
     C:\Plone41> bin\instance.exe fg
 
-.. class:: incremental
+.. class:: incremental note
 
 If you get an error asking you to stop the instance first, find and delete
 C:\Plone41\var\instance.pid and C:\Plone41\var\instance.lock
 
-.. class:: incremental
+.. class:: incremental note
 
 You may wish to make a shortcut to the `Services` panel on your desktop to
 save time. We'll be in there quite often
@@ -169,7 +181,7 @@ All Others:
 Create Your First Site
 ----------------------
 
-.. class:: todo
+.. class:: todo incremental
 
 * Open your web browser
 
@@ -187,7 +199,7 @@ Create Your First Site
   * **Title**: 'Happy Racquet Tennis Club'
   * **Site language**: 'English'
 
-* Do not select any add-ons for installation
+* **Do not** select any add-ons for installation
 
 * Click 'Create site'
 

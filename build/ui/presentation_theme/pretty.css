@@ -126,3 +126,42 @@ tt.docutils {background-color: white;}
 li:after {content: " [" attr(class) "]"; color: #F88;}
 div:before {content: "[" attr(class) "]"; color: #F88;}
 */
+
+ul.todo {
+    list-style: none;
+    list-style-image: none;
+}
+ul.todo > li: {
+}
+ul.todo > li:before,
+ul.todo > li.current:before {
+    content: "✓ ";
+    color: #339933;
+}
+ul.todo > li:before {
+    color: black;
+}
+ul.todo > li.incremental:before {
+    content: "";
+}
+ul.todo > li > ul {
+    margin-left: 0.5em;
+}
+
+.note,
+.note.current {
+    color: black;
+    font-size: 75%;
+    border: 1px solid grey;
+    background-color: #eee;
+    padding: 0.5em 1em;
+}
+.note.incremental {
+    background-color: white;
+    color: white;
+    border-color: white;
+}
+li > ul {
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
+}
