@@ -64,6 +64,10 @@ Skin Layers
 
 * Items found in a Skin Layer are called Skin Elements
 
+.. class:: note incremental
+
+Take note of the first layer in every Theme you see. What is it called?
+
 Find the Current Logo
 ---------------------
 
@@ -83,7 +87,7 @@ How can we know this is the right one?
 
 * Find <img /> tag for the portal logo
 
-* What is the filename of the ‘src’ of that tag?
+  * What is the filename of the ‘src’ of that tag?
 
 Customize the Logo
 ------------------
@@ -125,10 +129,12 @@ What Happened?
 
 * You created a new image with the same name
 
-* You put it in a layer searched before the layer where the original image is
-  found
+* You put it in a layer searched **before** the layer where the original image
+  is found
 
-* Your new image is found first, and is thus used
+* Your new image is found **before** the original image
+
+* Your new image is used **instead of** the original image
 
 Replace the Site Footer
 -----------------------
@@ -292,48 +298,173 @@ TAL Resources
 Review the Current Footer
 -------------------------
 
+.. class:: note mini
+
 ::
 
-    <div metal:define-macro="portal_footer"
-         i18n:domain="plone"
-         class="row">
+    <div metal:define-macro="portal_footer" i18n:domain="plone" class="row">
       <div class="cell width-full position-0">
         <div id="portal-footer">
           <p>
             <span i18n:translate="description_copyright" tal:omit-tag="">
-            The
-            <span i18n:name="plonecms" tal:omit-tag="">
-              <a href="http://plone.org" i18n:translate="label_plone_cms">Plone<sup>&reg;</sup> Open Source CMS/WCM</a>
-            </span>
-            is
-            <acronym title="Copyright" i18n:name="copyright" i18n:attributes="title title_copyright;">&copy;</acronym>
-            2000-<tal:year i18n:name="current_year" tal:content="view/year" />
-            by the
-            <span i18n:name="plonefoundation" tal:omit-tag="">
-              <a href="http://plone.org/foundation" i18n:translate="label_plone_foundation">Plone Foundation</a></span>
-              and friends.
+              The
+              <span i18n:name="plonecms" tal:omit-tag="">
+                <a href="http://plone.org" i18n:translate="label_plone_cms">
+                  Plone<sup>&reg;</sup> Open Source CMS/WCM
+                </a>
+              </span>
+              is
+              <acronym title="Copyright" 
+                       i18n:name="copyright" 
+                       i18n:attributes="title title_copyright;">&copy;</acronym>
+              2000-<tal:year i18n:name="current_year" tal:content="view/year" />
+              by the
+              <span i18n:name="plonefoundation" tal:omit-tag="">
+                <a href="http://plone.org/foundation" i18n:translate="label_plone_foundation">
+                  Plone Foundation
+                </a> and friends.
+              </span>
             </span>
             <span i18n:translate="description_license" tal:omit-tag="">
-              Distributed under the
+              Distributed under the 
               <span i18n:name="license" tal:omit-tag="">
-                <a href="http://creativecommons.org/licenses/GPL/2.0/" i18n:translate="label_gnu_gpl_licence">GNU GPL license</a></span>.
-                </span>
+                <a href="http://creativecommons.org/licenses/GPL/2.0/" 
+                   i18n:translate="label_gnu_gpl_licence">GNU GPL license
+                </a>
+              </span>.
+            </span>
           </p>
         </div>
       </div>
     </div>
 
-Some Things To Notice
----------------------
+Review the Current Footer
+-------------------------
 
-.. class:: todo
+Okay, so that's a bit much to look at all at once.  Let's break it down a bit.
 
-* Note ‘view/year’ TAL path expression
+The Wrapper
+-----------
 
-* What does this TAL result in on the page?
+.. class:: note mini
 
-* Do you understand the relationship between the code and the result?
+::
 
+    <div metal:define-macro="portal_footer" i18n:domain="plone" class="row">
+      <div class="cell width-full position-0">
+        <div id="portal-footer">
+          <p>
+            ...
+          </p>
+        </div>
+      </div>
+    </div>
+
+.. class:: incremental
+
+* Provides basic outer structure for the entire footer
+
+* Notice there is only one paragraph in the footer
+
+* **i18n:domain** provides scaffolding for internationalization
+
+The Top-level Structure
+-----------------------
+
+.. class:: note mini
+
+::
+
+    <span i18n:translate="description_copyright" tal:omit-tag="">The
+      ...
+    </span>
+    <span i18n:translate="description_license" tal:omit-tag="">
+      ...
+    </span>
+
+.. class:: incremental
+
+* **i18n:translate** registers two translatable phrases with the 
+  internationalization system
+
+* Note the use of the ``tal:omit-tag`` operator
+
+  * This allows us to use i18n attributes, but not need to keep the html tags
+    they are part of.
+
+The Copyright Phrase
+--------------------
+
+This is the meat of the footer, and a good object lesson in TAL.  Let's take
+a close look at what's going on, one part at a time
+
+.. class:: note mini
+
+::
+
+    <span i18n:translate="description_copyright" tal:omit-tag="">
+      The
+      <span i18n:name="plonecms" tal:omit-tag="">
+        <a href="http://plone.org" i18n:translate="label_plone_cms">
+          Plone<sup>&reg;</sup> Open Source CMS/WCM
+        </a>
+      </span>
+      is
+      ...
+    </span>
+
+.. class:: incremental
+
+* Note again the liberal use of **tal:omit-tag**.  There will be precious
+  little html left when we're through with this.
+
+The Copyright Phrase
+--------------------
+
+.. class:: note mini
+
+::
+
+    <span i18n:translate="description_copyright" tal:omit-tag="">
+      ...
+      <acronym title="Copyright" 
+                 i18n:name="copyright" 
+                 i18n:attributes="title title_copyright;">&copy;</acronym>
+        2000-<tal:year i18n:name="current_year" tal:content="view/year" />
+    </span>
+
+.. class:: incremental
+
+* **i18n:attributes** means we can even translate attributes of our html tags
+
+* **tal:content** means the <tal:year /> tag is being filled with something, 
+  what is the source?
+
+* What kind of **TALES** expression is ``view/year``?  What is ``view``?
+
+Review the Current Footer
+-------------------------
+
+So, after all that is rendered, what show's up in the user's browser?
+
+.. class:: incremental note mini
+
+::
+
+    <div class="row">
+      <div class="cell width-full position-0">
+        <div id="portal-footer">
+          <p>The
+            <a href="http://plone.org">Plone<sup>&reg;</sup> Open Source CMS/WCM</a>
+            is <acronym title="Copyright">&copy;</acronym> 2000-2012 by the
+            <a href="http://plone.org/foundation">Plone Foundation</a>
+            and friends.  Distributed under the
+            <a href="http://creativecommons.org/licenses/GPL/2.0/">
+              GNU GPL license</a>.
+          </p>
+        </div>
+      </div>
+    </div>
 
 Test Your Skills
 ----------------
@@ -344,23 +475,23 @@ just seen.
 
 Create a new footer, see how many of the following goals you can achieve:
 
-.. class:: todo
+.. class:: todo smaller
 
 * Text: ‘This site and all its content is ©2010-2011 by Happy Racquet Tennis
   Club’
 
 * The last year listed should alway be the current year
 
+* The club name should be a variable, set and then used (and perhaps
+  eventually found from our ``view``)
+
 * If the first year listed is the same as the current year, it should not show
   (nor should the dash)
 
-* The club name should be a variable, set and then used (and perhaps
-  eventually found from a Plone setting somewhere)
+My solution
+-----------
 
-The Footer
-----------
-
-.. class:: incremental
+.. class:: incremental note mini
 
 ::
 

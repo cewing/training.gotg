@@ -68,7 +68,8 @@ ul.urls {list-style: none; display: inline; margin: 0;}
 .urls li {display: inline; margin: 0;}
 .external {border-bottom: 1px dotted gray;}
 html>body .external {border-bottom: none;}
-.external:after {content: " \274F"; font-size: smaller; color: #77B;}
+/*.external:after {content: " \274F"; font-size: smaller; color: #77B;}*/
+
 
 .incremental, .incremental *, .incremental *:after {visibility: visible;
   color: white; border: 0;}
@@ -187,11 +188,13 @@ pre.note,
     color: white;
     border-color: white;
 }
-li > ul {
+li > ul,
+li > ol {
     margin-top: 0.25em;
     margin-bottom: 0.35em;
 }
-.slide ul li {
+.slide ul li,
+.slide ol li {
     margin-bottom: 0.25em;
 }
 pre.note.mini {

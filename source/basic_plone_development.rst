@@ -89,7 +89,11 @@ Windows Users
 * Open ``C:\Plone41\buildout.cfg`` in your text editor
 
 * Add ‘zopeskel’ to the list of parts and add a ``[zopeskel]`` part at the
-  end of the file::
+  end of the file
+
+.. class:: note mini
+
+::
 
     [buildout]
     ...
@@ -160,13 +164,17 @@ Installing ZopeSkel adds a new command to your ``bin`` directory, ``zopeskel``
 
 You can see what templates are available
 
+.. class:: note mini
+
 ::
 
     C:\Plone41> bin\zopeskel.exe --list
     or
     $ bin/zopeskel --list
 
-You can also get a full print-out of help about the package and how to use it
+You can also get a full print-out of help about the tool
+
+.. class:: note mini
 
 ::
 
@@ -225,7 +233,7 @@ Windows
 ::
 
     C:\Plone41> cd src
-    C:\Plone41> ..\bin\zopeskel plone my.package
+    C:\Plone41> ..\bin\zopeskel plone_basic my.package
 
 All Others
 ++++++++++
@@ -233,9 +241,16 @@ All Others
 ::
 
     $ cd src
-    $ ../bin/zopeskel plone my.package
+    $ ../bin/zopeskel plone_basic my.package
 
-Provide the following answers::
+Create a Plone Package
+----------------------
+
+Provide the following answers
+
+.. class:: note mini
+
+::
 
     Expert Mode? (What ...) (easy/expert/all)?) ['easy']: <hit enter to accept the default>
     Version (Version ...) ['1.0']: <hit enter to accept the default>
@@ -265,6 +280,9 @@ file::
     ...
     develop = 
         src/my.package
+
+Developing Your Package
+-----------------------
 
 You'll also need to add your package to the ``eggs`` configuration option for
 the buildout part::
@@ -338,17 +356,20 @@ Windows
 
 ::
 
-    C:\Plone41> cd my.package\my\package
+    C:\Plone41> cd my.package\src\my\package
     C:\Plone41> mkdir skins
     C:\Plone41> cd skins
     C:\Plone41> mkdir my_package_custom_images
+
+Create a Folder
+---------------
 
 All Others
 ++++++++++
 
 ::
 
-    $ cd my.package\my\package
+    $ cd my.package/src/my/package
     $ mkdir skins
     $ cd skins
     $ mkdir my_package_custom_images
@@ -358,11 +379,13 @@ Register the Folder with CMF
 
 We use **zcml** for package-level configuration (Zope Component Meta Language)
 
-.. class:: todo
+.. class:: todo smaller
 
-* Open ``configure.zcml`` from ``my.package/my/package`` in your text editor
+* Open ``configure.zcml`` from ``my.package/src/my/package`` in your text editor
 
 * Add the two marked lines below (the others should already be there)
+
+.. class:: note mini
 
 ::
 
@@ -379,8 +402,8 @@ We use **zcml** for package-level configuration (Zope Component Meta Language)
       <cmf:registerDirectory             <<< AND THIS ONE
         name="my_package_custom_image"/> <<< AND THIS ONE, TOO
 
-Register a Skin Layer with GenericSetup
----------------------------------------
+Register a Skin Layer with GS
+-----------------------------
 
 .. class:: incremental
 
@@ -408,12 +431,14 @@ The ``portal_skins`` GS step is called ``skins``
 
 .. class:: todo
 
-* Create a new file ``skins.xml`` in ``my.package/my/package/profiles/default``
+* Create a new file ``skins.xml`` in ``my.package/src/my/package/profiles/default``
 
 * Open this new, empty file in your text editor and insert the following
 
 GenericSetup for the Skin Tool
 ------------------------------
+
+.. class:: note mini
 
 ::
 
@@ -423,7 +448,7 @@ GenericSetup for the Skin Tool
     
       <object name="my_package_custom_images"
               meta_type="Filesystem Directory View"
-              directory="my.package:skins/my_package_custom_image"/>
+              directory="my.package:skins/my_package_custom_images"/>
       
       <skin-path name="Club Theme" based-on="Sunburst Theme">
         <layer name="my_package_custom_images"
@@ -495,7 +520,7 @@ Add Our Custom Footer
 
 There are two ways to do this
 
-.. class:: incremental
+.. class:: incremental smaller
 
 1. The old way:
 
@@ -507,7 +532,7 @@ There are two ways to do this
    
    * repeat the above for each viewlet you want to override
 
-.. class:: incremental
+.. class:: incremental smaller
 
 2. The new way:
    
@@ -517,12 +542,10 @@ There are two ways to do this
    
    * add a template for any viewlet you want to override
 
-.. class:: incremental
-
-We are going to go with the new way
-
 z3c.jbot
 --------
+
+We are going to go with the new way
 
 .. class:: incremental
 
@@ -564,6 +587,8 @@ Add a Package Dependency
 
 * Add ``z3c.jbot`` to the list of required packages
 
+.. class:: note mini
+
 ::
 
     ...
@@ -579,15 +604,28 @@ Set Up an Overrides Directory
 
 .. class:: todo
 
-* Make the directory in your package::
+* Make the directory in your package
+
+.. class:: note mini
+
+::
 
     C:\Plone41> cd src\my.package\my\package
     C:\Plone41> mkdir template_overrides
     or
-    $ cd src/my.package/my/package
+    $ cd src/my.package/src/my/package
     $ mkdir template_overrides
 
-* Register the directory in my/package/configure.zcml::
+Set Up an Overrides Directory
+-----------------------------
+
+.. class:: todo
+
+* Register the directory in my/package/configure.zcml
+
+.. class:: note mini
+
+::
 
     <!-- -*- extra stuff goes here -*- -->
     
@@ -632,7 +670,7 @@ Locating the Original Footer
 
   * it should say ``plone.app.layout.viewlets/footer.pt``
 
-* In ``my.package/my/package/template_overrides`` create a new file:
+* In ``my.package/src/my/package/template_overrides`` create a new file:
 
   * ``plone.app.layout.viewlets.footer.pt``
 
@@ -685,6 +723,11 @@ Windows
 
     C:\Plone41> bin\instance.exe fg
 
+See The Results
+---------------
+
+After buildout runs, restart Plone
+
 All Others
 ++++++++++
 
@@ -698,10 +741,12 @@ All Others
 
 * Do you see our new footer?
 
-More Customizations with GenericSetup
--------------------------------------
+More Customizations with GS
+---------------------------
 
-* Is that all the customizations we've made?
+Is that all the customizations we've made?
+
+.. class:: incremental
 
 * We also set up a site tile, right?  Way back when we first created our site?
 
@@ -715,7 +760,7 @@ Set Site Properties
 .. class:: todo
 
 * Create a new file ``properties.xml`` in
-  ``my.package/my/package/profiles/default``
+  ``my.package/src/my/package/profiles/default``
 
 * Open this file in your text editor
 
@@ -726,6 +771,8 @@ Set Site Properties
 
 GenericSetup for properties.xml
 -------------------------------
+
+.. class:: note mini
 
 ::
 
@@ -757,12 +804,14 @@ Setting Actions
 .. class:: todo
 
 * Create a new file ``actions.xml`` in
-  ``my.package/my/package/profiles/default``
+  ``my.package/src/my/package/profiles/default``
 
 * Open the file in your text editor and enter the following:
 
 GenericSetup for actions.xml
 ----------------------------
+
+.. class:: note mini
 
 ::
 
@@ -874,7 +923,11 @@ Adding a Test Part to Buildout
 * In the list of ``parts`` in the buildout part, add ``test`` to the end of
   the list
 
-* At the bottom of the file, add the following code::
+* At the bottom of the file, add the following code
+
+.. class:: note mini
+
+::
 
     [test]
     recipe = zc.recipe.testrunner
@@ -883,6 +936,8 @@ Adding a Test Part to Buildout
     eggs =
         my.package [test]
         ${buildout:eggs}
+
+.. class:: todo
 
 * Save the file
 
@@ -895,12 +950,20 @@ Windows users, you're done with this already.
 
 * Open the file ``develop.cfg`` in your text editor
 
+  .. class:: smaller
+
   * This file contains a number of useful options for developing code
   
   * Note the in the file where it says ``extends = buildout.cfg`` (~Line 110)
 
+.. class:: todo
+
 * Find the line that starts with ``test-packages`` and edit it to look like
-  this::
+  this
+
+.. class:: note mini
+
+::
 
     test-packages =
         my.package [test]
@@ -921,6 +984,8 @@ Windows
 
     C:\Plone41> bin\buildout.exe
 
+Re-run Buildout to Pick Up Changes
+----------------------------------
 
 All Others
 ++++++++++
@@ -946,7 +1011,11 @@ provides you with a simple way to run your tests
 * Our ``[test]`` part has added a new executable script ``test`` (on windows,
   ``test.exe``)
 
-* We run the tests by executing that script with some options::
+* We run the tests by executing that script with some options
+
+.. class:: note mini
+
+::
 
     C:\Plone41> bin\test.exe -s my.package
     or
@@ -956,8 +1025,12 @@ What you should see
 -------------------
 
 When you type the previous command, you should see a bunch of information
-scrolling by in your terminal window. This tells you something's working. When
-it finished, you should see something like what is shown below::
+scrolling by. This tells you the test is working. When it finishes, you should
+output like what is shown below
+
+.. class:: note mini
+
+::
 
     $ bin/test -s my.package bin/test:242: DeprecationWarning:
     zope.testing.testrunner is deprecated in favour of zope.testrunner.
@@ -995,14 +1068,19 @@ to understand what's going on here
 
 Open the following file from your add-on package::
 
-    ``my.package/src/my/package/testing.py``
+    my.package/src/my/package/testing.py
 
 .. class:: incremental
 
 * This file contains setup code needed to create your **test fixture**
 
-* A **test fixture** is used to set up the environment the tests will need
-    in order to run
+* A **test fixture** is used to set up the environment the tests will need 
+  in order to run
+
+Understanding Tests in Plone
+----------------------------
+
+.. class:: incremental
 
 * Test fixtures consist of **layers** which are responsible for this setup
 
@@ -1021,7 +1099,7 @@ Understanding Tests in Plone
 
 Next, open this file from your add-on package::
 
-    ``my.package/src/my/package/tests/test_example.py``
+    my.package/src/my/package/tests/test_example.py
 
 .. class:: incremental
 
@@ -1029,6 +1107,11 @@ Next, open this file from your add-on package::
 
 * This file will contain a test class, which extends the basic python
   ``unittest.TestCase``
+
+Understanding Tests in Plone
+----------------------------
+
+.. class:: incremental
 
 * This test class will have a ``layer`` attribute that points to the layer we
   set up before
@@ -1044,14 +1127,17 @@ Next, open this file from your add-on package::
 
   * Test methods will begin with ``test``
 
-  * ``afterSetUp`` and ``beforeTearDown`` are magic methods that run before
-    and after each test is run. You can put *initializations* you'll need for
-    your tests in these methods
+  * ``setUp`` and ``tearDown`` are magic methods that run before
+    and after each test is run.
 
 Understanding Your First Test
 -----------------------------
 
-Let's take a look at the code from the one test we have at the moment::
+Let's take a look at the code from the one test we have at the moment
+
+.. class:: note mini
+
+::
 
     def test_product_is_installed(self):
         """ Validate that our products GS profile has been run and the product 
@@ -1062,14 +1148,15 @@ Let's take a look at the code from the one test we have at the moment::
         self.assertTrue(pid in installed,
                         'package appears not to have been installed')
 
-* We are using the ``portal_quickinstaller`` tool, which is roughly equivalent
-  to the *Add-ons* control panel
+.. class:: smaller
 
-* We are asking this tool to provide a list of installed packages
+* We use the ``portal_quickinstaller`` tool, which powers the *Add-ons* 
+  control panel
 
-* We are checking to see if our package is in that list
+* We ask this tool to provide a list of installed packages and check for ours
 
-* If it isn't, we provide a message to let the tester know what went wrong
+* If it isn't there, we provide a message to let the tester know what went 
+  wrong
 
 Writing Your Own Test
 ---------------------
@@ -1078,6 +1165,8 @@ Let's add a test of our own. We've created a skin layer with our product, why
 don't we verify that it is being properly added to the ``portal_skins`` tool?
 
 Some hints:
+
+.. class:: smaller
 
 * The layer we added with our package is called ``my_package_custom_images``
 
@@ -1093,6 +1182,8 @@ Some hints:
 
 The Code for Our Second Test
 ----------------------------
+
+.. class:: note mini incremental
 
 ::
 
@@ -1110,22 +1201,21 @@ Learning More About Testing
 Testing is a very deep pool. We've only dipped the smallest edge of our pinkie
 toe into that pool. When you are ready to learn more, here are some resources:
 
+.. class:: smaller
+
 * The Python documentation on the unittest module
   (http://docs.python.org/library/unittest.html)
 
 * Doug Hellman's *Python Module of the Week* post on the *unittest* module
   (http://www.doughellmann.com/PyMOTW/unittest/)
 
-* The excellent documentation for ``plone.app.testing`` on pypi
-  (http://pypi.python.org/pypi/plone.app.testing/4.0.2)
-
-  * This documentation has some great information on how to write tests for
-    Plone, including
+* The excellent documentation for ``plone.app.testing`` on pypi, which includes
+  (http://pypi.python.org/pypi/plone.app.testing)
 
   * Helper functions available from the Plone Testing Fixture
-    (http://pypi.python.org/pypi/plone.app.testing/4.0.2#helper-functions)
+    (http://pypi.python.org/pypi/plone.app.testing#helper-functions)
 
   * Common patterns used in writing integration tests for Plone
-    (http://pypi.python.org/pypi/plone.app.testing/4.0.2#common-test-patterns)
+    (http://pypi.python.org/pypi/plone.app.testing#common-test-patterns)
 
 

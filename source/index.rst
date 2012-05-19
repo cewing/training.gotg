@@ -3,6 +3,7 @@ Getting Off The Ground With Plone
 
 .. class:: align-center
 
+|
 | **Cris Ewing**
 | Plone Symposium East, May 20-21, 2012
 | State College, PA, USA
