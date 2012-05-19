@@ -5,8 +5,8 @@ A Quick tour of A Plone Site
 ----------------------------
 
 Plone creates a number of consistent structures that all Plone sites share in
-common. Some may be missing, or changed in position, but they are always
-available to the site designer.
+common. Some may have been removed, or changed in position, but they are always
+*available* to the site designer.
 
 Page Structure
 --------------
@@ -14,11 +14,11 @@ Page Structure
 The Site Header
 +++++++++++++++
 
-.. image:: img/plone_header.png
+.. image:: ../img/plone_header.png
     :align: center
-    :width: 650px
+    :width: 600px
 
-.. class:: incremental
+.. class:: incremental smaller
 
 * Contains the logo, search bar and global navigation tabs
 
@@ -30,11 +30,11 @@ Page Structure
 The Site Footer
 +++++++++++++++
 
-.. image:: img/plone_footer.png
+.. image:: ../img/plone_footer.png
     :align: center
-    :width: 650px
+    :width: 600px
 
-.. class:: incremental
+.. class:: incremental smaller
 
 * Contains site-wide actions like contact and site map
 
@@ -46,11 +46,11 @@ Page Structure
 The Site Body
 +++++++++++++
 
-.. image:: img/plone_body.png
+.. image:: ../img/plone_body.png
     :align: center
-    :width: 650px
+    :width: 600px
 
-.. class:: incremental
+.. class:: incremental smaller
 
 * The **editable** part of a site
 
@@ -63,11 +63,11 @@ Page Structure
 The Site Portlet Columns
 ++++++++++++++++++++++++
 
-.. image:: img/plone_columns.png
+.. image:: ../img/plone_columns.png
     :align: center
-    :width: 650px
+    :width: 600px
 
-.. class:: incremental
+.. class:: incremental smaller
 
 * Dynamic content contained in portlets
 
@@ -81,11 +81,11 @@ Page Structure
 The ‘Green Frame’
 +++++++++++++++++
 
-.. image:: img/green_frame.png
+.. image:: ../img/green_frame.png
     :align: center
-    :width: 650px
+    :width: 600px
 
-.. class:: incremental
+.. class:: incremental smaller
 
 * The main UI for editing and managing content in Plone
 
@@ -235,9 +235,9 @@ Controls which products are activated in your site
 Activate Another Add-On
 -----------------------
 
-.. class:: todo
+You’ve done this before.  Let’s do it again
 
-* You’ve done this before.  Let’s do it again
+.. class:: todo
 
 * Activate ‘Working Copy Support’
 
@@ -249,7 +249,7 @@ Errors
 
 Information about anything that goes wrong in your site can be found here
 
-.. class:: incremental
+.. class:: incremental smaller
 
 * When your users have problems, look here
 
@@ -258,8 +258,12 @@ Information about anything that goes wrong in your site can be found here
   * If you have misconfigured permissions, ignoring ‘Unauthorized’ is not a
     good idea.
 
+  .. class:: incremental
+
   * You will see debugging references to ‘removing ignored exception types’.
     This is where you do it
+
+.. class:: incremental smaller
 
 * Be aware on Zeo installations, errors shown for only one client at a time
 
@@ -380,8 +384,10 @@ Activate a Theme
 
 * Note the difference
 
+.. class:: todo incremental
+
 * Do it again with ‘Unstyled’
 
-  * This is your site without any CSS!
+  * This is your site without **any** CSS!
 
 * And return to ‘Sunburst’

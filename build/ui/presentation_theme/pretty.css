@@ -127,6 +127,31 @@ li:after {content: " [" attr(class) "]"; color: #F88;}
 div:before {content: "[" attr(class) "]"; color: #F88;}
 */
 
+/* copied from html4css1 in docutils */
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.align-left {
+  text-align: left }
+.align-center {
+  clear: both ;
+  text-align: center }
+.align-right {
+  text-align: right }
+
+
+/* added by cris */
+
 ul.todo {
     list-style: none;
     list-style-image: none;
@@ -171,4 +196,7 @@ li > ul {
 }
 pre.note.mini {
     font-size: 50%;
+}
+.smaller {
+    font-size: 75%;
 }

@@ -64,7 +64,7 @@ Things you should **type** will be in monospace font::
 
     $ this is a command to type a the command line
 
-Place where you should **put in your own words** will be marked with angle 
+Places where you should **put in your own words** will be marked with angle 
 brackets::
 
     $ echo "My name is <your name here>"

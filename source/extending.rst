@@ -265,7 +265,7 @@ http://good-py.appspot.com
 
 * Good-py has a list of the packages for which it has a `kgs`
 
-* A `kgs` is specific to the version of an add-on and the version of Plone,
+* A `kgs` is specific to the version of an add-on *and* the version of Plone,
   check to be sure you point to the right one
 
 Pin Your Buildout
@@ -279,9 +279,10 @@ Pin Your Buildout
 
 * Paste the stuff that appeared in your terminal
 
-  * everything between the two 'Picked Versions' lines (but not those lines)
+  * everything between the two 'Picked Versions' lines (but not those two 
+    lines themselves)
 
-  * make sure you have [versions] in your `buildout.cfg` only once!
+  * make sure you have ``[versions]`` in your `buildout.cfg` only once!
 
 * Save and re-run buildout
 
