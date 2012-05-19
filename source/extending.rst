@@ -14,10 +14,13 @@ Introduction
 
 * There are many add-ons available
 
+Introduction
+------------
+
+* You can find add-ons *both* at http://plone.org/download *and*
+  http://pypi.python.org
+
   .. class:: incremental
-  
-  * You can find them *both* at http://plone.org/download *and*
-    http://pypi.python.org
 
   * You should check in both places, one may be more up-to-date than the 
     other
@@ -34,12 +37,12 @@ Preparation
 .. class:: incremental
 
 * Before making **any** changes to buildout.cfg, you must **always** stop any
-  systems that are running in the buildout
+  systems within the buildout that are running.
 
-* Running buildout changes executable code
+* Running buildout changes executable code.
 
 * If a system is running, and you change (or remove) the code that it uses,
-  **bad things happen**
+  **bad things happen™**.
 
 Stopping Plone
 --------------
@@ -65,7 +68,10 @@ On Other Systems
 Add Add-ons To Your Buildout
 ----------------------------
 
-.. class:: todo
+To add a new package to your Plone site, you must add it to the list of 
+*eggs* used in your buildout.
+
+.. class:: todo incremental
 
 * Open your text editor
 
@@ -77,15 +83,27 @@ Add Add-ons To Your Buildout
 
   * add 'Products.PloneFormGen' and 'Solgema.fullcalendar' to the list
 
+Add Add-ons To Your Buildout
+----------------------------
+
+Some add-ons require a bit of additional configuration so that Plone knows
+they are present.  You point Plone to this configuration by adding the package
+to the *zcml* list for your buildout
+
+.. class:: todo incremental
+
 * Find ``zcml =`` in the ``[buildout]`` part
+
+  .. class:: incremental
 
   * add 'Solgema.fullcalendar'
 
   * if there is no line with 'zcml =' in your `buildout.cfg`, add one at the
     end of the [buildout] part (just before the *next* part begins)
 
-* **Be Aware**: capitalization counts. `Solgema` is not the same as
-  `solgema`
+.. class:: incremental note
+
+**Be Aware**: capitalization counts. `Solgema` is not the same as `solgema`
 
 What It Should Look Like
 ------------------------
@@ -152,7 +170,12 @@ When It's Finished
 What you should see
 -------------------
 
-When it is complete, you should see something like this::
+When it is complete, you should see something like this (although your 
+numbers will differ):
+
+.. class:: note mini
+
+::
 
     *************** PICKED VERSIONS ****************
     Products.PloneFormGen = 1.7b5
@@ -170,9 +193,6 @@ When it is complete, you should see something like this::
     #Solgema.fullcalendar 1.10
     collective.js.jqueryui = 1.8.13.1
     *************** /PICKED VERSIONS ***************
-
-Your numbers will differ from these
-
 
 Buildout Dangers
 ----------------
@@ -203,7 +223,10 @@ Defensive Buildout
 Tools for Defense
 -----------------
 
-**buildout.dumppickedversions** extension
+You can use the **buildout.dumppickedversions** extension::
+
+    [buildout]
+    extensions = buildout.dumppickedversions
 
 .. class:: incremental
 
@@ -212,13 +235,15 @@ Tools for Defense
 
 * You can use these picked versions to ‘pin’ your buildout
 
+Tools for Defense
+-----------------
+
+You can alse use a configuration option for the ``[buildout]`` part::
+
+    [buildout]
+    allow-picked-versions = false
+
 .. class:: incremental
-
-or, you can use a configuration option for the [buildout] part
-
-.. class:: incremental
-
-*  ``allow-picked-versions = false``
 
 *  buildout will quit with an error each time an unpinned egg is found
  
@@ -231,7 +256,7 @@ Some add-on packages are quite complex. Finding a complete set of their
 dependencies in the correct version is not easy to do. Luckily, there's an
 app(spot) for that!
 
-* http://good-py.appspot.com
+http://good-py.appspot.com
 
 .. class:: incremental
 
@@ -246,7 +271,7 @@ app(spot) for that!
 Pin Your Buildout
 -----------------
 
-.. class:: todo
+.. class:: todo incremental
 
 * Find the [versions] part in your buildout.cfg
 
@@ -254,38 +279,39 @@ Pin Your Buildout
 
 * Paste the stuff that appeared in your terminal
 
-  * everything between the two 'Picked Versions' lines
+  * everything between the two 'Picked Versions' lines (but not those lines)
 
-  * make sure you have in your `buildout.cfg` [versions] only once!
+  * make sure you have [versions] in your `buildout.cfg` only once!
 
 * Save and re-run buildout
 
 * Note that this time, there are no package versions listed at the end
 
+Restart Plone (Windows)
+-----------------------
 
-Restart Plone
--------------
+.. class:: todo incremental
 
-Windows
-+++++++
+* Go to your services panel ('Start' > 'Control Panel' > 'System & Security' 
+  > 'Administrative Tools' > 'Services')
 
-Did you save that shortcut to the services panel? Go there. If not do it this
-time
+* Start the **Plone-4.1 Zeo** service
 
-.. class:: todo
+* Then, at the command prompt:
 
-* 'Start' > 'Control Panel' > 'System & Security' > 'Administrative Tools' >
-  'Services'
+.. class:: incremental
 
-* Start the `Plone-4.1 Zeo` service
-
-* Then, at the command prompt::
+::
 
     C:\> cd Plone41
     C:\Plone41> bin\instance.exe fg
 
-All Others
-++++++++++
+.. class:: note incremental
+
+Did you save that shortcut to the services panel?  If not, do it this time.
+
+Restart Plone (others)
+----------------------
 
 ::
 
@@ -295,7 +321,7 @@ All Others
 Activate Our New Add-ons
 ------------------------
 
-.. class:: todo
+.. class:: todo incremental
 
 * Go to http://localhost:8080/Plone
 
@@ -333,7 +359,15 @@ Test Your Skills
 You've now extended Plone with two packages that will provide add-on features.
 
 There's one more package we want to add which will make our work easier over
-the next two days. Let's see if you can get it done on your own!
+the next two days. This product will prevent email from being sent out by 
+Plone.  Instead, emails will be printed to the terminal.
+
+.. class:: incremental
+
+Let's see if you can get it done on your own!
+
+Test Your Skills
+----------------
 
 .. class:: todo
 
@@ -346,3 +380,8 @@ the next two days. Let's see if you can get it done on your own!
 * Re-run buildout
 
 * Start Plone in the Foreground
+
+.. class:: incremental note
+
+**question**: Can you *activate* that product?
+

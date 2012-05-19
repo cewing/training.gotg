@@ -148,6 +148,7 @@ ul.todo > li > ul {
     margin-left: 0.5em;
 }
 
+pre.note,
 .note,
 .note.current {
     color: black;
@@ -163,5 +164,11 @@ ul.todo > li > ul {
 }
 li > ul {
     margin-top: 0.25em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.35em;
+}
+.slide ul li {
+    margin-bottom: 0.25em;
+}
+pre.note.mini {
+    font-size: 50%;
 }
