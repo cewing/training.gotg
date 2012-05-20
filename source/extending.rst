@@ -82,6 +82,8 @@ To add a new package to your Plone site, you must add it to the list of
 * Find ``eggs =`` in the ``[buildout]`` part
 
   * add 'Products.PloneFormGen' and 'Solgema.fullcalendar' to the list
+  
+  * pin 'Solgema.fullcalendar' to version 2.0.2
 
 Add Add-ons To Your Buildout
 ----------------------------
@@ -115,7 +117,7 @@ buildout.cfg file::
     ... 
     eggs = 
         ... 
-        Solgema.fullcalendar
+        Solgema.fullcalendar==2.0.2
         Products.PloneFormGen
     ...
     zcml = 
