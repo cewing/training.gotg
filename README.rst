@@ -26,7 +26,18 @@ you will need to do the following::
 This will build the training module into an s5 presentation suitable for use
 in a classroom setting.
 
-Valid targets at this time include **s5** and **html**.  
+Valid targets at this time include **s5** and **html**.
+
+License
+=======
+
+This work is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of
+this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ or send
+a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View,
+California, 94041, USA.
+
+A copy of this license in text format is included in this package
 
 .. _License: http://creativecommons.org/licenses/by-nc-sa/3.0/
 .. _docutils: http://docutils.sourceforge.net/
