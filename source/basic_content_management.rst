@@ -792,7 +792,7 @@ reservations.
 
 .. class:: todo
 
-* Move one level up so that you are looking at the 'Court 1 Reservations'
+* Move one level up so that you are looking at the 'Reservations'
   folder
 
 * Click on the **Sharing** tab to set permissions for this folder

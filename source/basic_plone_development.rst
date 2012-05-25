@@ -400,7 +400,7 @@ We use **zcml** for package-level configuration (Zope Component Meta Language)
       <five:registerPackage package="." 
         initialize=".initialize" />
       <cmf:registerDirectory             <<< AND THIS ONE
-        name="my_package_custom_image"/> <<< AND THIS ONE, TOO
+        name="my_package_custom_images"/> <<< AND THIS ONE, TOO
 
 Register a Skin Layer with GS
 -----------------------------
